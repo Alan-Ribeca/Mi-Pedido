@@ -1,0 +1,79 @@
+.homeContainer {
+  position: relative;
+  height: 90.3vh;
+  .title {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .carrusel {
+    height: 20rem;
+    background-color: rgb(158, 141, 111);
+  }
+
+  .titleProduc {
+    margin: 1rem 1.2rem 0 0.7rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .filtrar {
+      width: 14%;
+      position: relative;
+      cursor: pointer;
+      .flecha {
+        position: absolute;
+        bottom: -19%;
+        width: 23px;
+        height: 23px;
+      }
+    }
+  }
+
+  .containerProduc {
+    margin: 1rem 1.2rem 0 0.7rem;
+    height: 5rem;
+    display: flex;
+    background-color: aqua;
+    position: relative;
+
+    .precio {
+      position: absolute;
+      top: 9%;
+      right: 3%;
+    }
+    .containerImg {
+      display: flex;
+      padding: 5px;
+
+      img {
+        width: 70px;
+        height: 70px;
+      }
+
+      .infoProdc {
+        margin-left: 0.5rem;
+        .stock {
+          margin-top: 0.2rem;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .contador {
+      position: absolute;
+      width: 30%;
+      bottom: 0%;
+      right: 0%;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+
+      .btnContador {
+        border: none;
+        background-color: transparent;
+        font-size: 30px; 
+      }
+    }
+  }
+}
