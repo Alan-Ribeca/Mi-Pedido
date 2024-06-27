@@ -35,7 +35,7 @@ export const Home = () => {
           <div className="containerImg">
             <img src="./img/public4Perf.jpeg" alt="img del producto" />
             <div className="infoProdc">
-              <p className="NameProd">Nombre del producto</p>
+              <p className="nameProd">Nombre del producto</p>
 
               <p className="stock">
                 Stock disp
@@ -53,6 +53,7 @@ export const Home = () => {
           </div>
         </section>
       </section>
+
       <NavMovil />
     </>
   );

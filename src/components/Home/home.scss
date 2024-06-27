@@ -16,11 +16,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: white;
+    font-size: 22px;
 
     .filtrar {
       width: 14%;
       position: relative;
       cursor: pointer;
+      font-size: 16px;
+
       .flecha {
         position: absolute;
         bottom: -19%;
@@ -34,13 +38,15 @@
     margin: 1rem 1.2rem 0 0.7rem;
     height: 5rem;
     display: flex;
-    background-color: aqua;
+    background-color: #383838;
     position: relative;
+    border-radius: 8px;
 
     .precio {
       position: absolute;
       top: 9%;
       right: 3%;
+      color: white;
     }
     .containerImg {
       display: flex;
@@ -49,13 +55,20 @@
       img {
         width: 70px;
         height: 70px;
+        border-radius: 8px;
       }
 
       .infoProdc {
         margin-left: 0.5rem;
+
+        .nameProd {
+          color: white;
+          font-weight: 600;
+        }
         .stock {
           margin-top: 0.2rem;
           font-size: 14px;
+          color: #d8d8d8;
         }
       }
     }
@@ -72,7 +85,13 @@
       .btnContador {
         border: none;
         background-color: transparent;
-        font-size: 30px; 
+        font-size: 30px;
+        color: #baff39;
+      }
+
+      .numer {
+        color: white;
+        font-size: 22px;
       }
     }
   }
