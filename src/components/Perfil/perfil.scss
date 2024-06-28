@@ -1,0 +1,94 @@
+.perfilUsuario {
+  width: 90%;
+  height: 35rem;
+  margin: 0 auto;
+  margin-top: 1.5rem;
+  background-color: #383838;
+  margin-top: 3rem;
+  box-shadow: 8px 8px 6px -9px rgba(0,102,19,1) inset;
+  -webkit-box-shadow: 8px 8px 6px -9px rgba(0,102,19,1) inset;
+  -moz-box-shadow: 8px 8px 6px -9px rgba(0,102,19,1) inset;
+  .containerNombre {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 54px;
+      height: 54px;
+    }
+
+    .namePerfil {
+      padding-left: 1rem;
+      color: white;
+      font-weight: 800;
+    }
+  }
+
+  .ajustePerfil {
+    padding-left: 2rem;
+
+    h4 {
+      color: #37ff8b;
+      font-size: 18px;
+      padding-bottom: 0.2rem;
+    }
+
+    .pDePerfil {
+      color: #d8d8d8;
+      padding: 0.5rem 0;
+      position: relative;
+
+      .toggle {
+        position: absolute;
+        top: 0%;
+        left: 35%;
+      }
+
+      &:hover {
+        cursor: pointer;
+        color: white;
+      }
+    }
+  }
+
+  /* button styling */
+  .button {
+    margin-top: 2rem;
+    border: none;
+    background: transparent;
+    --border-right: 6px;
+    --text-stroke-color: rgba(255, 255, 255, 0.6);
+    background-color: transparent;
+    --animation-color: #37ff8b;
+    --fs-size: 2em;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-size: var(--fs-size);
+    font-family: "Arial";
+    position: relative;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-stroke-color);
+
+    /* this is the text, when you hover on button */
+    .hover-text {
+      position: absolute;
+      box-sizing: border-box;
+      content: attr(data-text);
+      color: var(--animation-color);
+      width: 0%;
+      inset: 0;
+      border-right: var(--border-right) solid var(--animation-color);
+      overflow: hidden;
+      transition: 0.5s;
+      -webkit-text-stroke: 1px var(--animation-color);
+    }
+
+    /* hover */
+    &:hover .hover-text {
+      width: 50%;
+      filter: drop-shadow(0 0 23px var(--animation-color));
+    }
+  }
+}

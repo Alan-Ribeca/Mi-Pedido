@@ -6,7 +6,7 @@ export const NavMovil = () => {
     <>
       <nav className="navbarMovil">
         <ul>
-          <Link to="/">
+          <Link to="/" className="enlace">
             <li className="iconNav home">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -23,35 +23,39 @@ export const NavMovil = () => {
               <span className="nombreLogo inicio">Inicio</span>
             </li>
           </Link>
-          <li className="iconNav">
-            {" "}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              width={24}
-              height={24}
-            >
-              <path d="M21.41 18.59l-5.27-5.28A6.83 6.83 0 0017 10a7 7 0 10-7 7 6.83 6.83 0 003.31-.86l5.28 5.27a2 2 0 002.82-2.82zM5 10a5 5 0 115 5 5 5 0 01-5-5z"></path>
-            </svg>
-            <span className="nombreLogo buscar">Buscar</span>
-          </li>
-          <li className="iconNav">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              className="bi bi-clipboard2-check-fill"
-              viewBox="0 0 16 16"
-            >
-              <path d="M10 .5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5.5.5 0 0 1-.5.5.5.5 0 0 0-.5.5V2a.5.5 0 0 0 .5.5h5A.5.5 0 0 0 11 2v-.5a.5.5 0 0 0-.5-.5.5.5 0 0 1-.5-.5" />
-              <path d="M4.085 1H3.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1h-.585q.084.236.085.5V2a1.5 1.5 0 0 1-1.5 1.5h-5A1.5 1.5 0 0 1 4 2v-.5q.001-.264.085-.5m6.769 6.854-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708.708" />
-            </svg>
+          <Link to="/" className="enlace">
+            <li className="iconNav">
+              {" "}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                width={24}
+                height={24}
+              >
+                <path d="M21.41 18.59l-5.27-5.28A6.83 6.83 0 0017 10a7 7 0 10-7 7 6.83 6.83 0 003.31-.86l5.28 5.27a2 2 0 002.82-2.82zM5 10a5 5 0 115 5 5 5 0 01-5-5z"></path>
+              </svg>
+              <span className="nombreLogo buscar">Buscar</span>
+            </li>
+          </Link>
+          <Link to="/" className="enlace">
+            <li className="iconNav">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                className="bi bi-clipboard2-check-fill"
+                viewBox="0 0 16 16"
+              >
+                <path d="M10 .5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5.5.5 0 0 1-.5.5.5.5 0 0 0-.5.5V2a.5.5 0 0 0 .5.5h5A.5.5 0 0 0 11 2v-.5a.5.5 0 0 0-.5-.5.5.5 0 0 1-.5-.5" />
+                <path d="M4.085 1H3.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1h-.585q.084.236.085.5V2a1.5 1.5 0 0 1-1.5 1.5h-5A1.5 1.5 0 0 1 4 2v-.5q.001-.264.085-.5m6.769 6.854-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708.708" />
+              </svg>
 
-            <span className="nombreLogo pedido">Pedido</span>
-          </li>
-          <Link to="perfil">
+              <span className="nombreLogo pedido">Pedido</span>
+            </li>
+          </Link>
+          <Link to="perfil" className="enlace">
             <li className="iconNav">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

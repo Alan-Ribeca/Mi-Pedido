@@ -1,0 +1,87 @@
+.toggle-container {
+  --active-color: #37ff8b;
+  --inactive-color: #d3d3d6;
+  position: relative;
+  aspect-ratio: 292 / 142;
+  height: 1.875em;
+}
+
+.toggle-input {
+  appearance: none;
+  margin: 0;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.toggle {
+  height: 100%;
+  width: 50px;
+  overflow: visible;
+
+  .toggle-background {
+    fill: var(--inactive-color);
+    transition: fill 0.4s;
+  }
+
+  .toggle-circle-center {
+    transform-origin: center;
+    transition: transform 0.6s;
+  }
+
+  .toggle-circle {
+    transform-origin: center;
+    transition: transform 0.45s;
+    backface-visibility: hidden;
+
+    &.left {
+      transform: scale(1);
+    }
+
+    &.right {
+      transform: scale(0);
+    }
+  }
+
+  .toggle-icon {
+    transition: fill 0.4s;
+
+    &.on {
+      fill: var(--inactive-color);
+    }
+
+    &.off {
+      fill: #eaeaec;
+    }
+  }
+}
+
+.toggle-input:checked + .toggle {
+  .toggle-background {
+    fill: var(--active-color);
+  }
+
+  .toggle-circle-center {
+    transform: translateX(150px);
+  }
+
+  .toggle-circle.left {
+    transform: scale(0);
+  }
+
+  .toggle-circle.right {
+    transform: scale(1);
+  }
+
+  .toggle-icon.on {
+    fill: #fff;
+  }
+
+  .toggle-icon.off {
+    fill: var(--active-color);
+  }
+}
