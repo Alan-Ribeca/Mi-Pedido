@@ -28,8 +28,8 @@ export const Perfil = () => {
 
         <div className="ajustePerfil">
           <h4 className="titleP seguridad">Informacion de la cuenta</h4>
-          <p className="pDePerfil">Cambiar de usuario</p>
-          <p className="pDePerfil">Cambiar de contraseña</p>
+          <p className="pDePerfil">Cambiar usuario</p>
+          <p className="pDePerfil">Cambiar contraseña</p>
           <p className="pDePerfil">Numero de telefono</p>
         </div>
 

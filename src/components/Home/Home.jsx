@@ -4,7 +4,9 @@ export const Home = () => {
   return (
     <>
       <section className="homeContainer">
-        <h1 className="title">Mi pedido</h1>
+        <h1 className="title">
+          Mi <span className="letraTitle">pedido</span>
+        </h1>
         <div className="containercarrusel">
           <div className="containerUno">
             <div className="img">

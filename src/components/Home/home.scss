@@ -4,11 +4,23 @@
   .title {
     text-align: center;
     margin-top: 1rem;
-    font-weight: 600;
     font-size: 2.5rem;
     color: white;
     text-transform: uppercase;
     font-family: "Times New Roman", Times, serif;
+    .letraTitle {
+      --text-stroke-color: #baff39;
+      --fs-size: 2em;
+      letter-spacing: 4px;
+      text-decoration: none;
+      font-size: var(--fs-size);
+      text-transform: uppercase;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--text-stroke-color);
+      position: relative;
+      display: inline-block;
+      font-size: 2.3rem;
+    }
   }
 
   .containercarrusel {
@@ -183,7 +195,7 @@
           border: none;
           background-color: transparent;
           font-size: 30px;
-          color: #37FF8B;
+          color: #37ff8b;
         }
 
         .numer {
