@@ -1,4 +1,3 @@
-import { NavMovil } from "../navbar/NavMovil";
 import "./home.scss";
 
 export const Home = () => {
@@ -6,9 +5,73 @@ export const Home = () => {
     <>
       <section className="homeContainer">
         <h1 className="title">Mi pedido</h1>
+        <div className="containercarrusel">
+          <div className="containerUno">
+            <div className="img">
+              <img src="./img/i1.jpg" alt="img de una hamburguesa" />
 
-        <div className="carrusel">aca esta el carrusel</div>
+              <div className="descuento">
+                <span className="porcentaje">50%</span>
+                <span className="descuentoTexto">OFF</span>
+              </div>
+            </div>
 
+            <div className="infoCarrusel">
+              <h2 className="nombreProdCarrusel">
+                Big stomach
+                <span className="precioCarrusel">$7.300</span>
+              </h2>
+              <p className="descripCarrusel">
+                Big stomach es una hamburguesa delicada y deliciosa que tiene un
+                tamaño grande.
+              </p>
+            </div>
+          </div>
+
+          <div className="containerUno dere">
+            <div className="img">
+              <img src="./img/i2.jpg" alt="img de una hamburguesa" />
+
+              <div className="descuento">
+                <span className="porcentaje">50%</span>
+                <span className="descuentoTexto">OFF</span>
+              </div>
+            </div>
+
+            <div className="infoCarrusel">
+              <h2 className="nombreProdCarrusel">
+                Big stomach
+                <span className="precioCarrusel">$7.300</span>
+              </h2>
+              <p className="descripCarrusel">
+                Big stomach es una hamburguesa delicada y deliciosa que tiene un
+                tamaño grande.
+              </p>
+            </div>
+          </div>
+
+          <div className="containerUno izquierda">
+            <div className="img">
+              <img src="./img/i3.jpg" alt="img de una hamburguesa" />
+
+              <div className="descuento">
+                <span className="porcentaje">50%</span>
+                <span className="descuentoTexto">OFF</span>
+              </div>
+            </div>
+
+            <div className="infoCarrusel">
+              <h2 className="nombreProdCarrusel">
+                Big stomach
+                <span className="precioCarrusel">$7.300</span>
+              </h2>
+              <p className="descripCarrusel">
+                Big stomach es una hamburguesa delicada y deliciosa que tiene un
+                tamaño grande.
+              </p>
+            </div>
+          </div>
+        </div>
         <div className="filtrarProdc">
           <p className="titleProduc">
             Productos
@@ -17,44 +80,125 @@ export const Home = () => {
               <span className="flecha">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  className="bi bi-arrow-down-short"
                   viewBox="0 0 16 16"
+                  width="16"
+                  height="16"
+                  className="flechaSvg"
                 >
-                  <path
-                    fillRule="evenodd"
-                    d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4"
-                  />
+                  <path d="M8 11L3 6h10z" fillRule="evenodd"></path>
                 </svg>
               </span>
             </span>
           </p>
         </div>
+        <section className="contenedorProductos">
+          <section className="containerProduc">
+            <div className="containerImg">
+              <img src="./img/public4Perf.jpeg" alt="img del producto" />
+              <div className="infoProdc">
+                <p className="nameProd">Nombre del producto</p>
 
-        <section className="containerProduc">
-          <div className="containerImg">
-            <img src="./img/public4Perf.jpeg" alt="img del producto" />
-            <div className="infoProdc">
-              <p className="nameProd">Nombre del producto</p>
-
-              <p className="stock">
-                Stock disp
-                <span className="numerStock"> 583</span>
-              </p>
+                <p className="stock">
+                  Stock disp
+                  <span className="numerStock"> 583</span>
+                </p>
+              </div>
             </div>
-          </div>
 
-          <p className="precio">$600</p>
+            <p className="precio">$600</p>
 
-          <div className="contador">
-            <button className="btnContador menos">-</button>
-            <p className="numer">1</p>
-            <button className="btnContador mas">+</button>
-          </div>
+            <div className="contador">
+              <button className="btnContador menos">-</button>
+              <p className="numer">1</p>
+              <button className="btnContador mas">+</button>
+            </div>
+          </section>
+          <section className="containerProduc">
+            <div className="containerImg">
+              <img src="./img/i1.jpg" alt="img del producto" />
+              <div className="infoProdc">
+                <p className="nameProd">Nombre del producto</p>
+
+                <p className="stock">
+                  Stock disp
+                  <span className="numerStock"> 583</span>
+                </p>
+              </div>
+            </div>
+
+            <p className="precio">$600</p>
+
+            <div className="contador">
+              <button className="btnContador menos">-</button>
+              <p className="numer">1</p>
+              <button className="btnContador mas">+</button>
+            </div>
+          </section>{" "}
+          <section className="containerProduc">
+            <div className="containerImg">
+              <img src="./img/i3.jpg" alt="img del producto" />
+              <div className="infoProdc">
+                <p className="nameProd">Nombre del producto</p>
+
+                <p className="stock">
+                  Stock disp
+                  <span className="numerStock"> 583</span>
+                </p>
+              </div>
+            </div>
+
+            <p className="precio">$600</p>
+
+            <div className="contador">
+              <button className="btnContador menos">-</button>
+              <p className="numer">1</p>
+              <button className="btnContador mas">+</button>
+            </div>
+          </section>{" "}
+          <section className="containerProduc">
+            <div className="containerImg">
+              <img src="./img/i2.jpg" alt="img del producto" />
+              <div className="infoProdc">
+                <p className="nameProd">Nombre del producto</p>
+
+                <p className="stock">
+                  Stock disp
+                  <span className="numerStock"> 583</span>
+                </p>
+              </div>
+            </div>
+
+            <p className="precio">$600</p>
+
+            <div className="contador">
+              <button className="btnContador menos">-</button>
+              <p className="numer">1</p>
+              <button className="btnContador mas">+</button>
+            </div>
+          </section>{" "}
+          <section className="containerProduc">
+            <div className="containerImg">
+              <img src="./img/public4Perf.jpeg" alt="img del producto" />
+              <div className="infoProdc">
+                <p className="nameProd">Nombre del producto</p>
+
+                <p className="stock">
+                  Stock disp
+                  <span className="numerStock"> 583</span>
+                </p>
+              </div>
+            </div>
+
+            <p className="precio">$600</p>
+
+            <div className="contador">
+              <button className="btnContador menos">-</button>
+              <p className="numer">1</p>
+              <button className="btnContador mas">+</button>
+            </div>
+          </section>
         </section>
       </section>
-
-      <NavMovil />
     </>
   );
 };
