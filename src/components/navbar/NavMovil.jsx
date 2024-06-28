@@ -1,25 +1,28 @@
 import "./navMovil.scss";
+import { Link } from "react-router-dom";
 
 export const NavMovil = () => {
   return (
     <>
       <nav className="navbarMovil">
         <ul>
-          <li className="iconNav home">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              data-supported-dps="24x24"
-              fill="currentColor"
-              className="logos home"
-              width="24"
-              height="24"
-              focusable="false"
-            >
-              <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7 5 3.18V2h3v5.09z"></path>
-            </svg>
-            <span className="nombreLogo inicio">Inicio</span>
-          </li>
+          <Link to="/">
+            <li className="iconNav home">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                data-supported-dps="24x24"
+                fill="currentColor"
+                className="logos home"
+                width="24"
+                height="24"
+                focusable="false"
+              >
+                <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7 5 3.18V2h3v5.09z"></path>
+              </svg>
+              <span className="nombreLogo inicio">Inicio</span>
+            </li>
+          </Link>
           <li className="iconNav">
             {" "}
             <svg
@@ -48,19 +51,21 @@ export const NavMovil = () => {
 
             <span className="nombreLogo pedido">Pedido</span>
           </li>
-          <li className="iconNav">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              className="bi bi-person-fill"
-              viewBox="0 0 16 16"
-            >
-              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-            </svg>
-            <span className="nombreLogo perfil">Perfil</span>
-          </li>
+          <Link to="perfil">
+            <li className="iconNav">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                className="bi bi-person-fill"
+                viewBox="0 0 16 16"
+              >
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+              </svg>
+              <span className="nombreLogo perfil">Perfil</span>
+            </li>
+          </Link>
         </ul>
       </nav>
     </>
