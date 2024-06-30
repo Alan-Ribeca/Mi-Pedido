@@ -36,19 +36,43 @@
   }
 
   .gridsvg {
+    display: flex;
+    justify-content: center;
+    height: 450px;
+    margin-top: 1rem;
     .ulGrid {
+      width: 90%;
       display: grid;
+      align-items: center;
       grid-template-columns: repeat(3, auto);
+      background-color: rgb(254 254 254 / 94%);
       
       .svgPedido {
+        height: 100%;
         list-style: none;
         display: flex;
         flex-direction: column;
         align-items: center;
-
+        justify-content: center;
+        box-shadow: inset 1px 0px 2px 0px #c0c0c0;
+        
         .ImgSvg {
-            width: 45px;
-            height: 45px;
+          width: 45px;
+          height: 45px;
+        }
+
+        .nameSvg {
+          color: #676767;
+          margin-top: 0.5rem;
+        }
+
+        &:hover {
+          box-shadow: inset 0.5px 0.5px 2px 0px #575757;
+          background-color: #e8e8e8;
+          cursor: pointer;
+          .nameSvg {
+            color: black;
+          }
         }
       }
     }
