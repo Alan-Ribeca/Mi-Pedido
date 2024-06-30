@@ -10,7 +10,7 @@ export const Buscar = () => {
         <div className="inputBuscador">
           <input
             type="text"
-            placeholder="Buscar productos..."
+            placeholder="Buscar producto..."
             className="inputB"
           />
         </div>
