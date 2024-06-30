@@ -1,0 +1,56 @@
+.containerBuscador {
+  .titleBusqueda {
+    text-align: center;
+    margin: 1.5rem 0 1rem 0;
+    color: white;
+
+    .titleColor {
+      color: #37ff8b;
+    }
+  }
+
+  .inputBuscador {
+    width: 450px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+
+    .inputB {
+      width: 50%;
+      height: 30px;
+      border-radius: 8px;
+      border: none;
+      padding-left: 1rem;
+
+      &::placeholder {
+        font-weight: 600;
+        border: none;
+      }
+
+      &:focus {
+        outline: none;
+        border: none;
+      }
+    }
+  }
+
+  .gridsvg {
+    .ulGrid {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      
+      .svgPedido {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .ImgSvg {
+            width: 45px;
+            height: 45px;
+        }
+      }
+    }
+  }
+}

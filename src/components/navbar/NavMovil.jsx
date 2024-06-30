@@ -23,7 +23,7 @@ export const NavMovil = () => {
               <span className="nombreLogo inicio">Inicio</span>
             </li>
           </Link>
-          <Link to="/" className="enlace">
+          <Link to="/Buscar" className="enlace">
             <li className="iconNav">
               {" "}
               <svg

@@ -24,7 +24,7 @@
   }
 
   .containercarrusel {
-    height: 60%;
+    padding-bottom: 2rem;
     position: relative;
     overflow: hidden;
 
@@ -196,6 +196,10 @@
           background-color: transparent;
           font-size: 30px;
           color: #37ff8b;
+
+          &:hover {
+            cursor: pointer;
+          }
         }
 
         .numer {
