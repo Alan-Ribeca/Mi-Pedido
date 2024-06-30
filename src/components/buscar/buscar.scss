@@ -1,5 +1,6 @@
 .containerBuscador {
-  height: 100vh;
+  width: 90%;
+  margin: 0 auto;
   .titleBusqueda {
     text-align: center;
     padding: 2rem 0 1rem 0;
@@ -39,15 +40,15 @@
   .gridsvg {
     display: flex;
     justify-content: center;
-    height: 450px;
+    height: 30rem;
     margin: 1rem 0 3rem 0;
     .ulGrid {
-      width: 90%;
+      width: 100%;
       display: grid;
       align-items: center;
       grid-template-columns: repeat(3, auto);
       background-color: rgb(254 254 254 / 94%);
-      
+
       .svgPedido {
         height: 100%;
         list-style: none;
@@ -56,7 +57,7 @@
         align-items: center;
         justify-content: center;
         box-shadow: inset 1px 0px 2px 0px #c0c0c0;
-        
+
         .ImgSvg {
           width: 45px;
           height: 45px;
