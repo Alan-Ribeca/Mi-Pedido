@@ -1,0 +1,131 @@
+.listadoPedido {
+  .titlePedido {
+    text-align: center;
+    padding-top: 2rem;
+    color: white;
+  }
+
+  .editar {
+    color: #37ff8b;
+    position: absolute;
+    right: 4%;
+    top: 11%;
+    font-size: 12px;
+
+    &:hover {
+      color: #baff39;
+      cursor: pointer;
+    }
+  }
+
+  .contenedorProductos {
+    padding-bottom: 7rem;
+
+    .containerProduc {
+      margin: 4rem 1.2rem 0 0.7rem;
+      height: 5rem;
+      display: flex;
+      background-color: #383838;
+      position: relative;
+      border-radius: 8px;
+      box-shadow: 7px 7px 18px 0px #383838;
+
+      .precio {
+        position: absolute;
+        top: 9%;
+        right: 3%;
+        color: white;
+      }
+      .containerImg {
+        display: flex;
+        padding: 5px;
+
+        img {
+          width: 70px;
+          height: 70px;
+          border-radius: 8px;
+        }
+
+        .infoProdc {
+          margin-left: 0.5rem;
+
+          .nameProd {
+            color: white;
+            font-weight: 600;
+          }
+
+          .description {
+            font-size: 13px;
+            color: #d8d8d8;
+            margin-top: 0.2rem;
+          }
+          .cantidadItem {
+            margin-top: 0.2rem;
+            color: #d8d8d8;
+            font-size: 12px;
+
+            .numero {
+              color: #baff39;
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .detalleCompra {
+    border-top: 1px solid #d8d8d873;
+    border-bottom: 1px solid #d8d8d873;
+    width: 80%;
+    padding: 1.5rem 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    .detalleProd {
+      padding-left: 0.7rem;
+      color: white;
+    }
+
+    .cantidadTotal {
+      padding-left: 0.7rem;
+      margin: 1rem 0;
+      color: #d8d8d8;
+
+      .numeroTotal {
+        padding-left: 2rem;
+        color: #baff39;
+      }
+    }
+
+    .priceTotal {
+      padding-left: 0.7rem;
+      margin-bottom: 1.5rem;
+      color: #d8d8d8;
+
+      .precioNumber {
+        color: #baff39;
+        padding-left: 1rem;
+      }
+    }
+
+    .btnFinalizarCompra {
+      cursor: pointer;
+      width: 60%;
+      height: 35px;
+      margin: 0 auto;
+      text-align: center;
+      border-radius: 8px;
+      border: none;
+      background-color: #ffffff;
+      color: #519168;
+      font-weight: 900;
+      
+        
+      &:hover {
+        color: white;
+        background-color: #37ff8b;
+      }
+    }
+  }
+}
