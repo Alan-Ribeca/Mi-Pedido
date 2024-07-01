@@ -30,6 +30,7 @@ export const Carrusel = () => {
       descripcion:
         "Big stomach es una hamburguesa delicada y deliciosa que tiene un tamaño grande.",
     },
+    
   ];
 
   const showNextSlide = () => {
@@ -40,6 +41,10 @@ export const Carrusel = () => {
     const interval = setInterval(showNextSlide, 5000);
     return () => clearInterval(interval);
   });
+
+  const setSlide = (i) => {
+    setIndex(i);
+  };
 
   return (
     <div>
@@ -70,6 +75,15 @@ export const Carrusel = () => {
               <p className="descripCarrusel">{slide.descripcion}</p>
             </div>
           </div>
+        ))}
+      </div>
+      <div className="dots">
+        {slides.map((_, i) => (
+          <span
+            key={i}
+            className={`dot ${i === index ? "active-dot" : ""}`}
+            onClick={() => setSlide(i)} // Evento de clic para establecer la diapositiva
+          ></span>
         ))}
       </div>
     </div>
