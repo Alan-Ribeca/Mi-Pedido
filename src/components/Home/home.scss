@@ -23,38 +23,40 @@
     }
   }
 
-  .titleProduc {
-    margin: 2rem 1.2rem 0 0.7rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    font-size: 20px;
+  .filtrarProdc {
+    .titleProduc {
+      margin: 2rem 1.2rem 0 0.7rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      font-size: 20px;
 
-    .filtrar {
-      width: 14%;
-      position: relative;
-      cursor: pointer;
-      font-size: 16px;
+      .filtrar {
+        width: 14%;
+        position: relative;
+        cursor: pointer;
+        font-size: 16px;
 
-      .flecha {
-        position: absolute;
-        bottom: -19%;
-        width: 23px;
-        height: 23px;
+        .flecha {
+          position: absolute;
+          bottom: -19%;
+          width: 23px;
+          height: 23px;
 
-        .flechaSvg {
-          width: 18px;
-          height: 18px;
-          padding: 0.1rem 0 0 0.3rem;
-          fill: #ffffff;
+          .flechaSvg {
+            width: 18px;
+            height: 18px;
+            padding: 0.1rem 0 0 0.3rem;
+            fill: #ffffff;
+          }
         }
-      }
-      &:hover {
-        color: #baff39;
+        &:hover {
+          color: #baff39;
 
-        .flechaSvg {
-          fill: #baff39;
+          .flechaSvg {
+            fill: #baff39;
+          }
         }
       }
     }
