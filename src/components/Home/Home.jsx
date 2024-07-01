@@ -1,3 +1,4 @@
+import { Carrusel } from "./Carrusel";
 import "./home.scss";
 
 export const Home = () => {
@@ -7,73 +8,7 @@ export const Home = () => {
         <h1 className="title">
           Mi <span className="letraTitle">pedido</span>
         </h1>
-        <div className="containercarrusel">
-          <div className="containerUno">
-            <div className="img">
-              <img src="./img/i1.jpg" alt="img de una hamburguesa" />
-
-              <div className="descuento">
-                <span className="porcentaje">50%</span>
-                <span className="descuentoTexto">OFF</span>
-              </div>
-            </div>
-
-            <div className="infoCarrusel">
-              <h2 className="nombreProdCarrusel">
-                Big stomach
-                <span className="precioCarrusel">$7.300</span>
-              </h2>
-              <p className="descripCarrusel">
-                Big stomach es una hamburguesa delicada y deliciosa que tiene un
-                tamaño grande.
-              </p>
-            </div>
-          </div>
-
-          <div className="containerUno dere">
-            <div className="img">
-              <img src="./img/i2.jpg" alt="img de una hamburguesa" />
-
-              <div className="descuento">
-                <span className="porcentaje">50%</span>
-                <span className="descuentoTexto">OFF</span>
-              </div>
-            </div>
-
-            <div className="infoCarrusel">
-              <h2 className="nombreProdCarrusel">
-                Big stomach
-                <span className="precioCarrusel">$7.300</span>
-              </h2>
-              <p className="descripCarrusel">
-                Big stomach es una hamburguesa delicada y deliciosa que tiene un
-                tamaño grande.
-              </p>
-            </div>
-          </div>
-
-          <div className="containerUno izquierda">
-            <div className="img">
-              <img src="./img/i3.jpg" alt="img de una hamburguesa" />
-
-              <div className="descuento">
-                <span className="porcentaje">50%</span>
-                <span className="descuentoTexto">OFF</span>
-              </div>
-            </div>
-
-            <div className="infoCarrusel">
-              <h2 className="nombreProdCarrusel">
-                Big stomach
-                <span className="precioCarrusel">$7.300</span>
-              </h2>
-              <p className="descripCarrusel">
-                Big stomach es una hamburguesa delicada y deliciosa que tiene un
-                tamaño grande.
-              </p>
-            </div>
-          </div>
-        </div>
+        <Carrusel />
         <div className="filtrarProdc">
           <p className="titleProduc">
             Productos
