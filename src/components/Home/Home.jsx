@@ -1,64 +1,17 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { FuncionesContext } from "../../context/Funciones";
 import { Carrusel } from "./Carrusel";
 import "./home.scss";
 
 export const Home = () => {
-  const arrayProduc = [
-    {
-      id: 1,
-      img: "./img/public4Perf.jpeg",
-      alt: "img del producto",
-      nameProduc: "Nombre del producto",
-      stock: 500,
-      precio: 600,
-    },
-    {
-      id: 2,
-      img: "./img/i1.jpg",
-      alt: "img del producto",
-      nameProduc: "Nombre del producto",
-      stock: 30,
-      precio: 1600,
-    },
-    {
-      id: 3,
-      img: "./img/i2.jpg",
-      alt: "img del producto",
-      nameProduc: "Nombre del producto",
-      stock: 80,
-      precio: 80,
-    },
-    {
-      id: 4,
-      img: "./img/i3.jpg",
-      alt: "img del producto",
-      nameProduc: "Nombre del producto",
-      stock: 10,
-      precio: 350,
-    },
-    {
-      id: 5,
-      img: "./img/public4Perf.jpeg",
-      alt: "img del producto",
-      nameProduc: "Nombre del producto",
-      stock: 511,
-      precio: 556,
-    },
-    {
-      id: 6,
-      img: "./img/i1.jpg",
-      alt: "img del producto",
-      nameProduc: "Nombre del producto",
-      stock: 77,
-      precio: 330,
-    },
-  ];
-
-  const [abrirFiltrar, SetAbrirFiltrar] = useState();
-
-  function handleFiltrar() {
-    SetAbrirFiltrar(!abrirFiltrar);
-  }
+  const {
+    arrayProduc,
+    handleFiltrar,
+    abrirFiltrar,
+    handleClickSumar,
+    handleClickRestar,
+    cantidad,
+  } = useContext(FuncionesContext);
 
   return (
     <>
@@ -114,9 +67,19 @@ export const Home = () => {
               <p className="precio">${precio}</p>
 
               <div className="contador">
-                <button className="btnContador menos">-</button>
-                <p className="numer">1</p>
-                <button className="btnContador mas">+</button>
+                <button
+                  className="btnContador menos"
+                  onClick={() => handleClickRestar(id)}
+                >
+                  -
+                </button>
+                <p className="numer">{cantidad[id] || 0}</p>
+                <button
+                  className="btnContador mas"
+                  onClick={() => handleClickSumar(id)}
+                >
+                  +
+                </button>
               </div>
             </section>
           ))}
