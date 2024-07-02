@@ -51,12 +51,13 @@ export const Home = () => {
           </p>
         </div>
         <section className="contenedorProductos">
-          {arrayProduc.map(({ id, img, alt, nameProduc, stock, precio }) => (
+          {arrayProduc.map(({ id, img, alt, nameProduc, stock, precio, description }) => (
             <section className="containerProduc" key={id}>
               <div className="containerImg">
                 <img src={img} alt={alt} />
                 <div className="infoProdc">
                   <p className="nameProd">{nameProduc}</p>
+                  <p className="description">{description}</p>
 
                   <p className="stock">
                     Stock disp
@@ -86,6 +87,7 @@ export const Home = () => {
               </div>
             </section>
           ))}
+          <button className="btnFinalizarCompra">Realizar pedido</button>
         </section>
       </section>
     </>
