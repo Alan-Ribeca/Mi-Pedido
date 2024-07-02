@@ -11,6 +11,7 @@ export const Home = () => {
     handleClickSumar,
     handleClickRestar,
     cantidad,
+    precioCalculado
   } = useContext(FuncionesContext);
 
   return (
@@ -59,12 +60,12 @@ export const Home = () => {
 
                   <p className="stock">
                     Stock disp
-                    <span className="numerStock"> {stock}</span>
+                    <span className="numerStock"> +{stock}</span>
                   </p>
                 </div>
               </div>
 
-              <p className="precio">${precio}</p>
+              <p className="precio">{cantidad[id] > 0 ? `$${precioCalculado[id] || precio}` : `$${precio}`}</p>
 
               <div className="contador">
                 <button

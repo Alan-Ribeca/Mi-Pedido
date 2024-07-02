@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { createContext, useState } from "react";
 
@@ -10,39 +12,43 @@ const FuncionProvider = ({ children }) => {
       img: "./img/public4Perf.jpeg",
       alt: "img del producto",
       nameProduc: "Nombre del producto",
-      stock: 500,
+      stock: 100,
       precio: 600,
+      cantidad: 0,
     },
     {
       id: 2,
       img: "./img/i1.jpg",
       alt: "img del producto",
       nameProduc: "Nombre del producto",
-      stock: 30,
+      stock: 100,
       precio: 1600,
+      cantidad: 0,
     },
     {
       id: 3,
       img: "./img/i2.jpg",
       alt: "img del producto",
       nameProduc: "Nombre del producto",
-      stock: 80,
+      stock: 100,
       precio: 80,
+      cantidad: 0,
     },
     {
       id: 4,
       img: "./img/i3.jpg",
       alt: "img del producto",
       nameProduc: "Nombre del producto",
-      stock: 10,
+      stock: 100,
       precio: 350,
+      cantidad: 0,
     },
     {
       id: 5,
       img: "./img/public4Perf.jpeg",
       alt: "img del producto",
       nameProduc: "Nombre del producto",
-      stock: 511,
+      stock: 100,
       precio: 556,
     },
     {
@@ -50,8 +56,9 @@ const FuncionProvider = ({ children }) => {
       img: "./img/i1.jpg",
       alt: "img del producto",
       nameProduc: "Nombre del producto",
-      stock: 77,
+      stock: 100,
       precio: 330,
+      cantidad: 0,
     },
   ];
 
@@ -63,11 +70,22 @@ const FuncionProvider = ({ children }) => {
 
   // funcion para sumar y restar los productos
   const [cantidad, setCantidad] = useState(0);
+  const [precioCalculado, setPrecioCalculado] = useState(cantidad);
 
   const handleClickSumar = (id) => {
+    // Actualizar la cantidad seleccionada
     setCantidad((prevCantidad) => ({
       ...prevCantidad,
       [id]: (prevCantidad[id] || 0) + 1,
+    }));
+
+    // Encontrar el producto correspondiente al id
+    const product = arrayProduc.find((prod) => prod.id === id);
+
+    // Actualizar el precio calculado utilizando el callback de setState
+    setPrecioCalculado((prevPrecios) => ({
+      ...prevPrecios,
+      [id]: (prevPrecios[id] || 0) + product.precio,
     }));
   };
 
@@ -75,6 +93,18 @@ const FuncionProvider = ({ children }) => {
     setCantidad((prevCantidad) => ({
       ...prevCantidad,
       [id]: (prevCantidad[id] || 0) > 0 ? prevCantidad[id] - 1 : 0,
+    }));
+
+    // Encontrar el producto correspondiente al id
+    const product = arrayProduc.find((prod) => prod.id === id);
+
+    // Actualizar el precio calculado utilizando el callback de setState
+    setPrecioCalculado((prevPrecios) => ({
+      ...prevPrecios,
+      [id]:
+        (prevPrecios[id] || 0) > product.precio
+          ? prevPrecios[id] - product.precio
+          : 0,
     }));
   };
 
@@ -87,6 +117,7 @@ const FuncionProvider = ({ children }) => {
         handleClickSumar,
         handleClickRestar,
         cantidad,
+        precioCalculado,
       }}
     >
       {children}
