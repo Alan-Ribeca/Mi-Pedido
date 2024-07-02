@@ -39,7 +39,7 @@ export const Home = () => {
             </span>
             {abrirFiltrar && (
               <div className="cartelFiltrar">
-                <ul className="ListaFiltrado">
+                <ul className="listaFiltrado">
                   <li className="nameFiltrar">Categoria</li>
                   <li className="nameFiltrar">A-Z</li>
                   <li className="nameFiltrar">Z-A</li>

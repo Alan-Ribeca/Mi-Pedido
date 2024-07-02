@@ -25,6 +25,7 @@
 
   .filtrarProdc {
     .titleProduc {
+      position: relative;
       margin: 2rem 1.2rem 0 0.7rem;
       display: flex;
       justify-content: space-between;
@@ -56,6 +57,34 @@
 
           .flechaSvg {
             fill: #baff39;
+          }
+        }
+      }
+
+      .cartelFiltrar {
+        position: absolute;
+        right: 0%;
+        top: 100%;
+        z-index: 1;
+        background-color: #d8d8d8;
+        color: black;
+        border-radius: 8px;
+        width: 40%;
+        box-shadow: -8px -8px 14px -6px rgb(21 32 0 / 22%);
+
+        .listaFiltrado {
+          list-style: none;
+          padding: 0.5rem;
+
+          .nameFiltrar {
+            font-size: 14px;
+            margin-bottom: 0.5rem;
+
+            &:hover {
+              cursor: pointer;
+              color:#37ff8b;
+              font-weight: 600;
+            }
           }
         }
       }
