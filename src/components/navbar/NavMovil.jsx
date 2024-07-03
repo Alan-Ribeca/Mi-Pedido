@@ -8,12 +8,12 @@ export const NavMovil = () => {
     <>
       <nav className="navbarMovil">
         <ul>
-          <Link to="/" className="enlace">
-            {/* <li className="iconNav home"> */}
-            <li
-              className={`iconNav ${claseNav === "inicio" ? "activa" : ""}`}
-              onClick={() => handleClickNav("inicio")}
-            >
+          <Link
+            to="/"
+            className="enlace"
+            onClick={() => handleClickNav("inicio")}
+          >
+            <li className={`iconNav ${claseNav === "inicio" ? "activa" : ""}`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -29,12 +29,12 @@ export const NavMovil = () => {
               <span className="nombreLogo inicio">Inicio</span>
             </li>
           </Link>
-          <Link to="/Buscar" className="enlace">
-            {/* <li className="iconNav"> */}
-            <li
-              className={`iconNav ${claseNav === "buscar" ? "activa" : ""}`}
-              onClick={() => handleClickNav("buscar")}
-            >
+          <Link
+            to="/Buscar"
+            className="enlace"
+            onClick={() => handleClickNav("buscar")}
+          >
+            <li className={`iconNav ${claseNav === "buscar" ? "activa" : ""}`}>
               {" "}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -48,11 +48,12 @@ export const NavMovil = () => {
               <span className="nombreLogo buscar">Buscar</span>
             </li>
           </Link>
-          <Link to="/pedido" className="enlace">
-            <li
-              className={`iconNav ${claseNav === "pedido" ? "activa" : ""}`}
-              onClick={() => handleClickNav("pedido")}
-            >
+          <Link
+            to="/pedido"
+            className="enlace"
+            onClick={() => handleClickNav("pedido")}
+          >
+            <li className={`iconNav ${claseNav === "pedido" ? "activa" : ""}`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -68,11 +69,12 @@ export const NavMovil = () => {
               <span className="nombreLogo pedido">Pedido</span>
             </li>
           </Link>
-          <Link to="perfil" className="enlace">
-            <li
-              className={`iconNav ${claseNav === "perfil" ? "activa" : ""}`}
-              onClick={() => handleClickNav("perfil")}
-            >
+          <Link
+            to="perfil"
+            className="enlace"
+            onClick={() => handleClickNav("perfil")}
+          >
+            <li className={`iconNav ${claseNav === "perfil" ? "activa" : ""}`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
