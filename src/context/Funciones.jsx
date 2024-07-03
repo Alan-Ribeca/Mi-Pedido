@@ -76,13 +76,22 @@ const FuncionProvider = ({ children }) => {
   // funcion para sumar y restar los productos
   const [cantidad, setCantidad] = useState(0);
   const [precioCalculado, setPrecioCalculado] = useState(cantidad);
+  const [claseProductos, setClaseProductos] = useState("");
 
   const handleClickSumar = (id) => {
     // Actualizar la cantidad seleccionada
-    setCantidad((prevCantidad) => ({
-      ...prevCantidad,
-      [id]: (prevCantidad[id] || 0) + 1,
-    }));
+    setCantidad((prevCantidad) => {
+      const newCantidad = {
+        ...prevCantidad,
+        [id]: (prevCantidad[id] || 0) + 1,
+      };
+
+      if (newCantidad[id] < 0) {
+        setClaseProductos("conProduc");
+      }
+
+      return newCantidad
+    });
 
     // Encontrar el producto correspondiente al id
     const product = arrayProduc.find((prod) => prod.id === id);
@@ -114,7 +123,6 @@ const FuncionProvider = ({ children }) => {
   };
 
   // funcion para remarcar con la linea blanca en que navegacion estamos (el nav)
-
   const [claseNav, setClaseNav] = useState(
     localStorage.getItem("claseNav") || "inicio"
   );

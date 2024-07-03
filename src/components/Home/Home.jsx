@@ -51,42 +51,50 @@ export const Home = () => {
           </p>
         </div>
         <section className="contenedorProductos">
-          {arrayProduc.map(({ id, img, alt, nameProduc, stock, precio, description }) => (
-            <section className="containerProduc" key={id}>
-              <div className="containerImg">
-                <img src={img} alt={alt} />
-                <div className="infoProdc">
-                  <p className="nameProd">{nameProduc}</p>
-                  <p className="description">{description}</p>
+          {arrayProduc.map(
+            ({ id, img, alt, nameProduc, stock, precio, description }) => (
+              // <section className="containerProduc" key={id}>
+              <section
+                className={`containerProduc ${
+                  cantidad[id] > 0 ? "conProduc" : ""
+                }`}
+                key={id}
+              >
+                <div className="containerImg">
+                  <img src={img} alt={alt} />
+                  <div className="infoProdc">
+                    <p className="nameProd">{nameProduc}</p>
+                    <p className="description">{description}</p>
 
-                  <p className="stock">
-                    Stock disp
-                    <span className="numerStock"> +{stock}</span>
-                  </p>
+                    <p className="stock">
+                      Stock disp
+                      <span className="numerStock"> +{stock}</span>
+                    </p>
+                  </div>
                 </div>
-              </div>
 
-              <p className="precio">
-                {cantidad[id] > 0 ? `$${precioCalculado[id]}` : `$${precio}`}
-              </p>
+                <p className="precio">
+                  {cantidad[id] > 0 ? `$${precioCalculado[id]}` : `$${precio}`}
+                </p>
 
-              <div className="contador">
-                <button
-                  className="btnContador menos"
-                  onClick={() => handleClickRestar(id)}
-                >
-                  -
-                </button>
-                <p className="numer">{cantidad[id] || 0}</p>
-                <button
-                  className="btnContador mas"
-                  onClick={() => handleClickSumar(id)}
-                >
-                  +
-                </button>
-              </div>
-            </section>
-          ))}
+                <div className="contador">
+                  <button
+                    className="btnContador menos"
+                    onClick={() => handleClickRestar(id)}
+                  >
+                    -
+                  </button>
+                  <p className="numer">{cantidad[id] || 0}</p>
+                  <button
+                    className="btnContador mas"
+                    onClick={() => handleClickSumar(id)}
+                  >
+                    +
+                  </button>
+                </div>
+              </section>
+            )
+          )}
           <button className="btnFinalizarCompra">Realizar pedido</button>
         </section>
       </section>
