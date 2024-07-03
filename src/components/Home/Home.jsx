@@ -95,7 +95,7 @@ export const Home = () => {
               </section>
             )
           )}
-          <button className="btnFinalizarCompra">Realizar pedido</button>
+          <button className={`btnFinalizarCompra ${arrayProduc.some(p => cantidad[p.id] > 0) ? "btnActivado" : ""}`}>Realizar pedido</button>
         </section>
       </section>
     </>

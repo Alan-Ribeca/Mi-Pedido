@@ -186,14 +186,23 @@
       text-align: center;
       border-radius: 8px;
       border: none;
-      background-color: #ffffff;
-      color: #519168;
+      background-color: #9c9c9c;
+      color: #00000080;
       font-weight: 900;
-      cursor: pointer;
 
-      &:hover {
+      &.btnActivado {
+        cursor: pointer;
+        background-color: #31995c;
         color: white;
-        background-color: #37ff8b;
+
+        &:hover {
+          background-color: #37ff8b8f
+        }
+      }
+    
+      
+      &:disabled {
+        cursor: not-allowed;
       }
     }
   }
