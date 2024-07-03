@@ -1,13 +1,19 @@
 import "./navMovil.scss";
+import { useContext } from "react";
+import { FuncionesContext } from "../../context/Funciones";
 import { Link } from "react-router-dom";
-
 export const NavMovil = () => {
+  const { claseNav, handleClickNav } = useContext(FuncionesContext);
   return (
     <>
       <nav className="navbarMovil">
         <ul>
           <Link to="/" className="enlace">
-            <li className="iconNav home">
+            {/* <li className="iconNav home"> */}
+            <li
+              className={`iconNav ${claseNav === "inicio" ? "activa" : ""}`}
+              onClick={() => handleClickNav("inicio")}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -24,7 +30,11 @@ export const NavMovil = () => {
             </li>
           </Link>
           <Link to="/Buscar" className="enlace">
-            <li className="iconNav">
+            {/* <li className="iconNav"> */}
+            <li
+              className={`iconNav ${claseNav === "buscar" ? "activa" : ""}`}
+              onClick={() => handleClickNav("buscar")}
+            >
               {" "}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +49,10 @@ export const NavMovil = () => {
             </li>
           </Link>
           <Link to="/pedido" className="enlace">
-            <li className="iconNav">
+            <li
+              className={`iconNav ${claseNav === "pedido" ? "activa" : ""}`}
+              onClick={() => handleClickNav("pedido")}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -56,7 +69,10 @@ export const NavMovil = () => {
             </li>
           </Link>
           <Link to="perfil" className="enlace">
-            <li className="iconNav">
+            <li
+              className={`iconNav ${claseNav === "perfil" ? "activa" : ""}`}
+              onClick={() => handleClickNav("perfil")}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"

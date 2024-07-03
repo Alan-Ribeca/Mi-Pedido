@@ -113,6 +113,16 @@ const FuncionProvider = ({ children }) => {
     }));
   };
 
+  // funcion para remarcar con la linea blanca en que navegacion estamos (el nav)
+
+  const [claseNav, setClaseNav] = useState(
+    localStorage.getItem("claseNav") || "inicio"
+  );
+
+  const handleClickNav = (tipo) => {
+    setClaseNav(tipo);
+    localStorage.setItem("claseNav", tipo);
+  };
   return (
     <FuncionesContext.Provider
       value={{
@@ -123,6 +133,8 @@ const FuncionProvider = ({ children }) => {
         handleClickRestar,
         cantidad,
         precioCalculado,
+        claseNav,
+        handleClickNav,
       }}
     >
       {children}
