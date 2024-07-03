@@ -66,11 +66,11 @@
         right: 0%;
         top: 100%;
         z-index: 1;
-        background-color: #d8d8d8;
-        color: black;
+        background-color: rgb(32, 32, 32);
+        color: white;
         border-radius: 8px;
         width: 40%;
-        box-shadow: -8px -8px 14px -6px rgb(21 32 0 / 22%);
+        box-shadow: -5px -4px 16px -4px rgb(70 68 68 / 45%);
 
         .listaFiltrado {
           list-style: none;
@@ -79,6 +79,10 @@
           .nameFiltrar {
             font-size: 14px;
             margin-bottom: 0.5rem;
+
+            &:last-child {
+              margin: 0;
+            }
 
             &:hover {
               cursor: pointer;
@@ -196,11 +200,10 @@
         color: white;
 
         &:hover {
-          background-color: #37ff8b8f
+          background-color: #37ff8b8f;
         }
       }
-    
-      
+
       &:disabled {
         cursor: not-allowed;
       }

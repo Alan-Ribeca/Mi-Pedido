@@ -42,9 +42,9 @@ export const Home = () => {
               <div className="cartelFiltrar">
                 <ul className="listaFiltrado">
                   <li className="nameFiltrar">Categoria</li>
+                  <li className="nameFiltrar">Descuento</li>
                   <li className="nameFiltrar">A-Z</li>
                   <li className="nameFiltrar">Z-A</li>
-                  <li className="nameFiltrar">Descuento</li>
                 </ul>
               </div>
             )}

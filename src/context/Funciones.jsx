@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 const FuncionesContext = createContext();
 
@@ -133,6 +133,24 @@ const FuncionProvider = ({ children }) => {
     localStorage.setItem("claseNav", tipo);
   };
 
+
+  // funcion para el toggle de "PERFIL"
+
+  const [active, setActive] = useState(() => {
+    const estadoGuardado = localStorage.getItem("toggleState");
+    return estadoGuardado ? JSON.parse(estadoGuardado) : false;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("toggleState", JSON.stringify(active));
+  }, [active]);
+
+  const toggleClass = () => {
+    setActive((estadoPrevio) => !estadoPrevio);
+  };
+
+
+
   return (
     <FuncionesContext.Provider
       value={{
@@ -145,6 +163,8 @@ const FuncionProvider = ({ children }) => {
         precioCalculado,
         claseNav,
         handleClickNav,
+        toggleClass,
+        active, 
       }}
     >
       {children}
