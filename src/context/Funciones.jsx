@@ -90,7 +90,7 @@ const FuncionProvider = ({ children }) => {
         setClaseProductos("conProduc");
       }
 
-      return newCantidad
+      return newCantidad;
     });
 
     // Encontrar el producto correspondiente al id
@@ -101,6 +101,7 @@ const FuncionProvider = ({ children }) => {
       ...prevPrecios,
       [id]: (prevPrecios[id] || 0) + product.precio,
     }));
+
   };
 
   const handleClickRestar = (id) => {
@@ -131,6 +132,7 @@ const FuncionProvider = ({ children }) => {
     setClaseNav(tipo);
     localStorage.setItem("claseNav", tipo);
   };
+
   return (
     <FuncionesContext.Provider
       value={{
