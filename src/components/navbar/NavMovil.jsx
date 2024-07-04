@@ -30,7 +30,7 @@ export const NavMovil = () => {
             </li>
           </Link>
           <Link
-            to="/Buscar"
+            to="/buscar"
             className="enlace"
             onClick={() => handleClickNav("buscar")}
           >

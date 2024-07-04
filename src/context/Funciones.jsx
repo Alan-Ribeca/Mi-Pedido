@@ -186,6 +186,25 @@ const FuncionProvider = ({ children }) => {
     setActive((estadoPrevio) => !estadoPrevio);
   };
 
+
+  // funcion para calcular el total (precio y cantidad) de los productos
+  const losProductos =
+  JSON.parse(localStorage.getItem("productoSeleccionado")) || [];
+
+  const calcularTotales = () => {
+    let totalPrecio = 0;
+    let totalCantidad = 0;
+
+    losProductos.forEach((produc) => {
+      totalPrecio += produc.precio * produc.cantidad;
+      totalCantidad += produc.cantidad;
+    })
+
+    return { totalPrecio, totalCantidad}
+  }
+
+  const {totalPrecio, totalCantidad} = calcularTotales()
+
   return (
     <FuncionesContext.Provider
       value={{
@@ -200,6 +219,8 @@ const FuncionProvider = ({ children }) => {
         handleClickNav,
         toggleClass,
         active,
+        losProductos,
+        calcularTotales
       }}
     >
       {children}

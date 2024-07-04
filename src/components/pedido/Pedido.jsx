@@ -1,6 +1,12 @@
+import { useContext } from "react";
+import { FuncionesContext } from "../../context/Funciones";
 import "./pedido.scss";
 
 export const Pedido = () => {
+  const { losProductos, calcularTotales } = useContext(FuncionesContext);
+  const { totalPrecio, totalCantidad } = calcularTotales();
+
+
   return (
     <section className="listadoPedido">
       <h3 className="titlePedido">Resumen de pedido</h3>
@@ -19,29 +25,36 @@ export const Pedido = () => {
           </svg>
         </strong>
       </p>
-      <section className="contenedorProductos">
-        <div className="containerProduc">
-          <div className="containerImg">
-            <img src="./img/public4Perf.jpeg" alt="img del producto" />
-            <div className="infoProdc">
-              <p className="nameProd">Nombre del producto</p>
-              <p className="description">Un pack de coca cola de 1 Litro</p>
-              <p className="cantidadItem">
-                Cantidad: <strong className="numero">5</strong>
-              </p>
+
+      {losProductos.map(
+        ({ id, img, alt, nameProduc, description, cantidad, precio }) => (
+          <section className="contenedorProductos" key={id}>
+            <div className="containerProduc">
+              <div className="containerImg">
+                <img src={img} alt={alt} />
+                <div className="infoProdc">
+                  <p className="nameProd">{nameProduc}</p>
+                  <p className="description">{description}</p>{" "}
+                  {/* Corregido: cerrar llave de description */}
+                  <p className="cantidadItem">
+                    Cantidad: <strong className="numero">{cantidad}</strong>
+                  </p>
+                </div>
+              </div>
+              <p className="precio">${precio}</p>
             </div>
-          </div>
-          <p className="precio">$600</p>
-        </div>
-      </section>
+          </section>
+        )
+      )}
+
       <div className="detalleCompra">
         <h4 className="detalleProd">Detalle de la compra</h4>
         <p className="cantidadTotal">
           Cantidad de productos totales{" "}
-          <strong className="numeroTotal">5</strong>
+          <strong className="numeroTotal">{totalCantidad}</strong>
         </p>
         <p className="priceTotal">
-          Precio Total <strong className="precioNumber">$600</strong>
+          Precio Total <strong className="precioNumber">${totalPrecio}</strong>
         </p>
         <button className="btnFinalizarCompra">Finalizar pedido</button>
       </div>
