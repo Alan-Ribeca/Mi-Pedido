@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
@@ -101,8 +102,39 @@ const FuncionProvider = ({ children }) => {
       ...prevPrecios,
       [id]: (prevPrecios[id] || 0) + product.precio,
     }));
-
   };
+
+  useEffect(() => {
+    let productoSeleccionado =
+      JSON.parse(localStorage.getItem("productoSeleccionado")) || [];
+
+    Object.keys(cantidad).forEach((id) => {
+      const existingProductIndex = productoSeleccionado.findIndex(
+        (prod) => prod.id === parseInt(id)
+      );
+      const product = arrayProduc.find((prod) => prod.id === parseInt(id));
+
+      if (cantidad[id] === 0) {
+        // Eliminar producto si la cantidad es 0
+        if (existingProductIndex >= 0) {
+          productoSeleccionado.splice(existingProductIndex, 1);
+        }
+      } else if (existingProductIndex >= 0) {
+        productoSeleccionado[existingProductIndex].cantidad = cantidad[id];
+        productoSeleccionado[existingProductIndex].precio = precioCalculado[id];
+      } else {
+        productoSeleccionado.push({
+          ...product,
+          cantidad: cantidad[id] || 1,
+        });
+      }
+    });
+
+    localStorage.setItem(
+      "productoSeleccionado",
+      JSON.stringify(productoSeleccionado)
+    );
+  }, [cantidad, precioCalculado]);
 
   const handleClickRestar = (id) => {
     setCantidad((prevCantidad) => ({
@@ -133,7 +165,6 @@ const FuncionProvider = ({ children }) => {
     localStorage.setItem("claseNav", tipo);
   };
 
-
   // funcion para el toggle de "PERFIL"
 
   const [active, setActive] = useState(() => {
@@ -149,8 +180,6 @@ const FuncionProvider = ({ children }) => {
     setActive((estadoPrevio) => !estadoPrevio);
   };
 
-
-
   return (
     <FuncionesContext.Provider
       value={{
@@ -164,7 +193,7 @@ const FuncionProvider = ({ children }) => {
         claseNav,
         handleClickNav,
         toggleClass,
-        active, 
+        active,
       }}
     >
       {children}
