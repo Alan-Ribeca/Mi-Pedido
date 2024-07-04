@@ -182,30 +182,33 @@
       }
     }
 
-    .btnFinalizarCompra {
-      width: 60%;
-      height: 35px;
-      margin: 0 auto;
-      margin-top: 1.5rem;
+    .btnLink {
       text-align: center;
-      border-radius: 8px;
-      border: none;
-      background-color: #9c9c9c;
-      color: #00000080;
-      font-weight: 900;
+      margin-top: 1.5rem;
+      .btnFinalizarCompra {
+        width: 60%;
+        height: 35px;
+        margin: 0 auto;
+        text-align: center;
+        border-radius: 8px;
+        border: none;
+        background-color: #9c9c9c;
+        color: #00000080;
+        font-weight: 900;
 
-      &.btnActivado {
-        cursor: pointer;
-        background-color: #31995c;
-        color: white;
+        &.btnActivado {
+          cursor: pointer;
+          background-color: #31995c;
+          color: white;
 
-        &:hover {
-          background-color: #37ff8b8f;
+          &:hover {
+            background-color: #37ff8b8f;
+          }
         }
-      }
 
-      &:disabled {
-        cursor: not-allowed;
+        &:disabled {
+          cursor: not-allowed;
+        }
       }
     }
   }

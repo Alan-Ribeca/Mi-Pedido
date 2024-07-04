@@ -6,6 +6,30 @@
     margin-bottom: 4.5rem;
   }
 
+  .containerVacio {
+    text-align: center;
+
+    .sinProduc {
+      color: #d8d8d8;
+    }
+
+    .btnFinalizarCompra {
+      width: 60%;
+      height: 35px;
+      margin: 0 auto;
+      margin-top: 1.5rem;
+      text-align: center;
+      border-radius: 8px;
+      border: none;
+      background-color: white;
+      color: #00000080;
+      font-weight: 900;
+
+      &:hover {
+        background-color: #37ff8b8f;
+      }
+    }
+  }
   .editar {
     color: #37ff8b;
     position: absolute;
