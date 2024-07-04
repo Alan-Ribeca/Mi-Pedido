@@ -104,6 +104,12 @@ const FuncionProvider = ({ children }) => {
     }));
   };
 
+  // resetear el localStarage cada vez que se recarga la pagina
+  useEffect(() => {
+    localStorage.removeItem("productoSeleccionado");
+  }, []);
+
+  // agregar los productos seleccionados al localStorage
   useEffect(() => {
     let productoSeleccionado =
       JSON.parse(localStorage.getItem("productoSeleccionado")) || [];
