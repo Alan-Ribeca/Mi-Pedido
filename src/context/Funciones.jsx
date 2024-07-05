@@ -3,6 +3,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { createContext, useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const FuncionesContext = createContext();
 
@@ -162,20 +163,46 @@ const FuncionProvider = ({ children }) => {
   };
 
   // funcion para remarcar con la linea blanca en que navegacion estamos (el nav)
+  // const [claseNav, setClaseNav] = useState(
+  //   localStorage.getItem("claseNav") || "inicio"
+  // );
+
+  // const handleClickNav = (tipo) => {
+  //   setClaseNav(tipo);
+  //   localStorage.setItem("claseNav", tipo);
+  // };
+
+
+  const location = useLocation();
+
+  const obtenerClaseNav = (pathname) => {
+    const partes = pathname.split("/");
+    return partes[partes.length - 1] || "inicio";
+  };
+
   const [claseNav, setClaseNav] = useState(
-    localStorage.getItem("claseNav") || "inicio"
+    obtenerClaseNav(window.location.pathname)
   );
 
-  const handleClickNav = (tipo) => {
-    setClaseNav(tipo);
-    localStorage.setItem("claseNav", tipo);
+  useEffect(() => {
+    const nuevaClaseNav = obtenerClaseNav(location.pathname);
+    setClaseNav(nuevaClaseNav);
+    localStorage.setItem("claseNav", nuevaClaseNav);
+  }, [location]);
+
+  const handleClickNav = (nav) => {
+    setClaseNav(nav);
+    localStorage.setItem("claseNav", nav);
   };
+
+
+// de aca para arriba borrar hasta lo que esta tachado
 
   // funcion para el toggle de "PERFIL"
 
   const [active, setActive] = useState(() => {
     const estadoGuardado = localStorage.getItem("toggleState");
-    return estadoGuardado ? JSON.parse(estadoGuardado) : false;
+    return estadoGuardado ? JSON.parse(estadoGuardado) : true;
   });
 
   useEffect(() => {

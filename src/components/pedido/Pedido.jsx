@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import "./pedido.scss";
 
 export const Pedido = () => {
-  const { losProductos, calcularTotales } = useContext(FuncionesContext);
+  const { losProductos, calcularTotales, handleClickNav } =
+    useContext(FuncionesContext);
   const { totalPrecio, totalCantidad } = calcularTotales();
 
-  
   return (
     <section className="listadoPedido">
       <h1 className="titlePedido">Resumen de pedido</h1>
@@ -16,7 +16,7 @@ export const Pedido = () => {
         <>
           <div className="containerVacio">
             <h4 className="sinProduc">No hay ningun producto seleccionado</h4>
-            <Link to={"/"}>
+            <Link to={"/"} onClick={() => handleClickNav("inicio")}>
               <button className="btnFinalizarCompra">Realizar pedido</button>
             </Link>
           </div>

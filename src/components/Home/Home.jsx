@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { FuncionesContext } from "../../context/Funciones";
 import { Carrusel } from "./Carrusel";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 import "./home.scss";
 
@@ -14,6 +14,7 @@ export const Home = () => {
     handleClickRestar,
     cantidad,
     precioCalculado,
+    handleClickNav
   } = useContext(FuncionesContext);
 
   return (
@@ -97,7 +98,8 @@ export const Home = () => {
               </section>
             )
           )}
-          <Link to={"/pedido"} className="btnLink">
+          <Link to="/pedido" className="btnLink"
+          onClick={() => handleClickNav("pedido")}>
             <button
               className={`btnFinalizarCompra ${
                 arrayProduc.some((p) => cantidad[p.id] > 0) ? "btnActivado" : ""
