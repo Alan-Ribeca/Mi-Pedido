@@ -139,6 +139,11 @@ const FuncionProvider = ({ children }) => {
     );
   }, [cantidad, precioCalculado]);
 
+  // funcion para resetear el array de los productos seleccionados del localStorage cuando se reincia la pag
+  useEffect(() => {
+    localStorage.setItem("productoSeleccionado", JSON.stringify([]));
+  }, []);
+
   const handleClickRestar = (id) => {
     setCantidad((prevCantidad) => ({
       ...prevCantidad,
@@ -159,16 +164,6 @@ const FuncionProvider = ({ children }) => {
   };
 
   // funcion para remarcar con la linea blanca en que navegacion estamos (el nav)
-  // const [claseNav, setClaseNav] = useState(
-  //   localStorage.getItem("claseNav") || "inicio"
-  // );
-
-  // const handleClickNav = (tipo) => {
-  //   setClaseNav(tipo);
-  //   localStorage.setItem("claseNav", tipo);
-  // };
-
-
   const location = useLocation();
 
   const obtenerClaseNav = (pathname) => {
@@ -192,7 +187,6 @@ const FuncionProvider = ({ children }) => {
   };
 
 
-// de aca para arriba borrar hasta lo que esta tachado
 
   // funcion para el toggle de "PERFIL"
 

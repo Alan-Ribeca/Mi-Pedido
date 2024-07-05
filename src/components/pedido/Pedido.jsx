@@ -26,6 +26,11 @@ export const Pedido = () => {
 
     // Abrir el enlace en una nueva ventana (o puedes usar window.location.href para redirigir)
     window.open(enlaceWhatsApp, "_blank");
+
+    // reiniciar el array del localStorage
+    localStorage.setItem("productoSeleccionado", JSON.stringify([]));
+
+    window.location.reload();
   };
 
   return (
