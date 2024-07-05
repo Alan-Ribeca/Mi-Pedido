@@ -105,7 +105,6 @@ const FuncionProvider = ({ children }) => {
     }));
   };
 
-
   // agregar los productos seleccionados al localStorage
   useEffect(() => {
     let productoSeleccionado =
@@ -186,10 +185,7 @@ const FuncionProvider = ({ children }) => {
     localStorage.setItem("claseNav", nav);
   };
 
-
-
   // funcion para el toggle de "PERFIL"
-
   const [active, setActive] = useState(() => {
     const estadoGuardado = localStorage.getItem("toggleState");
     return estadoGuardado ? JSON.parse(estadoGuardado) : true;
@@ -203,24 +199,24 @@ const FuncionProvider = ({ children }) => {
     setActive((estadoPrevio) => !estadoPrevio);
   };
 
-
-  // funcion para calcular el total (precio y cantidad) de los productos
+  //calcular el total (precio y cantidad) de los productos
   const losProductos =
-  JSON.parse(localStorage.getItem("productoSeleccionado")) || [];
+    JSON.parse(localStorage.getItem("productoSeleccionado")) || [];
 
   const calcularTotales = () => {
     let totalPrecio = 0;
     let totalCantidad = 0;
 
     losProductos.forEach((produc) => {
-      totalPrecio += produc.precio * produc.cantidad;
+      totalPrecio += produc.precio 
       totalCantidad += produc.cantidad;
-    })
 
-    return { totalPrecio, totalCantidad}
-  }
+      
+    });
 
-  const {totalPrecio, totalCantidad} = calcularTotales()
+    return { totalPrecio, totalCantidad };
+  };
+  const { totalPrecio, totalCantidad } = calcularTotales();
 
   return (
     <FuncionesContext.Provider
@@ -237,7 +233,7 @@ const FuncionProvider = ({ children }) => {
         toggleClass,
         active,
         losProductos,
-        calcularTotales
+        calcularTotales,
       }}
     >
       {children}
