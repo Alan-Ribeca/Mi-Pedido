@@ -8,6 +8,26 @@ export const Pedido = () => {
     useContext(FuncionesContext);
   const { totalPrecio, totalCantidad } = calcularTotales();
 
+  const enviarMensajeWhatsApp = (losProductos) => {
+    // Construir el texto en el formato deseado para todos los productos
+    let texto = losProductos
+      .map((producto) => {
+        return `nombre: "${producto.nameProduc}"\ndescripción: "${producto.description}"\ncantidad: "${producto.cantidad}"`;
+      })
+      .join("\n\n");
+
+    // Número de teléfono al que quieres enviar el mensaje (debe estar en formato internacional)
+    let numeroWhatsApp = "+543402483866"; // Reemplaza con tu número de teléfono
+
+    // Construir el enlace de WhatsApp
+    let enlaceWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(
+      texto
+    )}`;
+
+    // Abrir el enlace en una nueva ventana (o puedes usar window.location.href para redirigir)
+    window.open(enlaceWhatsApp, "_blank");
+  };
+
   return (
     <section className="listadoPedido">
       <h1 className="titlePedido">Resumen de pedido</h1>
@@ -67,7 +87,12 @@ export const Pedido = () => {
               Precio Total{" "}
               <strong className="precioNumber">${totalPrecio}</strong>
             </p>
-            <button className="btnFinalizarCompra">Finalizar pedido</button>
+            <button
+              className="btnFinalizarCompra"
+              onClick={() => enviarMensajeWhatsApp(losProductos)}
+            >
+              Finalizar pedido
+            </button>
           </div>
         </>
       )}
