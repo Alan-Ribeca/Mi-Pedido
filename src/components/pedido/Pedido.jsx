@@ -9,13 +9,18 @@ export const Pedido = () => {
   const { totalPrecio, totalCantidad } = calcularTotales();
 
   const enviarMensajeWhatsApp = (losProductos) => {
-    let texto = losProductos
+
+    let textoTotales = `Precio total: ${totalPrecio}\nCantidad prod: ${totalCantidad}\n`
+
+    let textoProductos = losProductos
       .map((producto) => {
-        return `Precio total: ${totalPrecio}\nCantidad prod: ${totalCantidad}\nNombre: "${producto.nameProduc}"\nDescripción: "${producto.description}"\nCantidad: "${producto.cantidad}"`;
+        return `Nombre: "${producto.nameProduc}"\nDescripción: "${producto.description}"\nCantidad: "${producto.cantidad}"`;
       })
       .join("\n\n");
 
     const numeroWhatsApp = "+543402483866";
+
+    let texto = textoTotales + textoProductos;  
 
     let enlaceWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(
       texto

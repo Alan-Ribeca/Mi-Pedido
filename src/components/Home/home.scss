@@ -125,6 +125,7 @@
         color: white;
       }
       .containerImg {
+        width: 100%;
         display: flex;
         padding: 5px;
 
@@ -135,7 +136,7 @@
         }
 
         .infoProdc {
-          width: 340px;
+          width: 79%;
           margin-left: 0.5rem;
 
           .nameProd {
