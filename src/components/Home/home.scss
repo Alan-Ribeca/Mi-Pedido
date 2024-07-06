@@ -135,6 +135,7 @@
         }
 
         .infoProdc {
+          width: 340px;
           margin-left: 0.5rem;
 
           .nameProd {
@@ -143,9 +144,17 @@
           }
 
           .description {
+            max-width: 75%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
             font-size: 12px;
             color: #d8d8d8;
             margin-top: 0.2rem;
+
+            &:hover {
+              white-space:unset;
+            }
           }
           .stock {
             margin-top: 0.2rem;

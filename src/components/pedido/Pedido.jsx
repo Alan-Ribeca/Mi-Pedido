@@ -11,7 +11,7 @@ export const Pedido = () => {
   const enviarMensajeWhatsApp = (losProductos) => {
     let texto = losProductos
       .map((producto) => {
-        return `nombre: "${producto.nameProduc}"\ndescripción: "${producto.description}"\ncantidad: "${producto.cantidad}"`;
+        return `Precio total: ${totalPrecio}\nCantidad prod: ${totalCantidad}\nNombre: "${producto.nameProduc}"\nDescripción: "${producto.description}"\nCantidad: "${producto.cantidad}"`;
       })
       .join("\n\n");
 
