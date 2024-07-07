@@ -4,13 +4,17 @@ import { Link } from "react-router-dom";
 import "./pedido.scss";
 
 export const Pedido = () => {
-  const { losProductos, calcularTotales, handleClickNav } =
-    useContext(FuncionesContext);
+  const {
+    losProductos,
+    calcularTotales,
+    handleClickNav,
+    handleEditarProd,
+    edit,
+  } = useContext(FuncionesContext);
   const { totalPrecio, totalCantidad } = calcularTotales();
 
   const enviarMensajeWhatsApp = (losProductos) => {
-
-    let textoTotales = `Precio total: ${totalPrecio}\nCantidad prod: ${totalCantidad}\n`
+    let textoTotales = `Precio total: ${totalPrecio}\nCantidad prod: ${totalCantidad}\n`;
 
     let textoProductos = losProductos
       .map((producto) => {
@@ -20,7 +24,7 @@ export const Pedido = () => {
 
     const numeroWhatsApp = "+543402483866";
 
-    let texto = textoTotales + textoProductos;  
+    let texto = textoTotales + textoProductos;
 
     let enlaceWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(
       texto
@@ -49,7 +53,7 @@ export const Pedido = () => {
         </>
       ) : (
         <>
-          <p className="editar">
+          <p className="editar" onClick={handleEditarProd}>
             Editar Pedido{" "}
             <strong className="svgEdit">
               <svg
@@ -67,18 +71,24 @@ export const Pedido = () => {
           {losProductos.map(
             ({ id, img, alt, nameProduc, description, cantidad, precio }) => (
               <section className="contenedorProductos" key={id}>
-                <div className="containerProduc">
+                <div className={`containerProduc ${edit ? 'modoEdit' : ''}`}>
                   <div className="containerImg">
                     <img src={img} alt={alt} />
                     <div className="infoProdc">
                       <p className="nameProd">{nameProduc}</p>
                       <p className="description">{description}</p>
+                      <p className="eliminar">Eliminar prod</p>
                       <p className="cantidadItem">
                         Cantidad: <strong className="numero">{cantidad}</strong>
                       </p>
                     </div>
                   </div>
                   <p className="precio">${precio}</p>
+                  <div className="contador">
+                    <button className="btnContador menos">-</button>
+                    <p className="numer">{cantidad}</p>
+                    <button className="btnContador mas">+</button>
+                  </div>
                 </div>
               </section>
             )

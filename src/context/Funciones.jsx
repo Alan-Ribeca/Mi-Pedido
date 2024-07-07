@@ -71,7 +71,7 @@ const FuncionProvider = ({ children }) => {
   ];
 
   //funcion para abrir el filtrar producto
-  const [abrirFiltrar, SetAbrirFiltrar] = useState();
+  const [abrirFiltrar, SetAbrirFiltrar] = useState(false);
   function handleFiltrar() {
     SetAbrirFiltrar(!abrirFiltrar);
   }
@@ -219,6 +219,15 @@ const FuncionProvider = ({ children }) => {
   };
   const { totalPrecio, totalCantidad } = calcularTotales();
 
+  //funcion para actualizar los pedidos
+  const [edit, setEdit] = useState(false)
+
+  const handleEditarProd = () => {
+    console.log('probando')
+    setEdit(!edit)
+  }
+
+
   return (
     <FuncionesContext.Provider
       value={{
@@ -235,6 +244,8 @@ const FuncionProvider = ({ children }) => {
         active,
         losProductos,
         calcularTotales,
+        handleEditarProd,
+        edit
       }}
     >
       {children}

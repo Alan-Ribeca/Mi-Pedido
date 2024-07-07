@@ -82,20 +82,80 @@
           }
 
           .description {
+            max-width: 75%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
             font-size: 12px;
             color: #d8d8d8;
             margin-top: 0.2rem;
+          }
+
+          .eliminar {
+            display: none;
+            position: absolute;
+            font-size: 10px;
+            color: #d8d8d8;
+            bottom: 7%;
+            cursor: pointer;
+            &:hover {
+              color: white;
+            }
           }
           .cantidadItem {
             margin-top: 0.2rem;
             color: #d8d8d8;
             font-size: 11px;
+            display: block;
 
             .numero {
               color: #baff39;
               font-size: 16px;
             }
           }
+        }
+      }
+      .contador {
+        position: absolute;
+        width: 30%;
+        bottom: 0%;
+        right: 0%;
+        visibility: hidden;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        .btnContador {
+          border: none;
+          background-color: transparent;
+          font-size: 30px;
+          color: #37ff8b;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
+        .numer {
+          color: white;
+          font-size: 22px;
+        }
+      }
+      &.modoEdit {
+        .containerImg {
+          .infoProdc {
+            .cantidadItem {
+              display: none;
+            }
+
+            .eliminar {
+              display: block;
+            }
+          }
+        }
+
+        .contador {
+          visibility: visible;
         }
       }
     }
