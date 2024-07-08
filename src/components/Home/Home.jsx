@@ -1,7 +1,8 @@
-import { useContext } from "react";
+/* eslint-disable no-unused-vars */
+import { useContext, useEffect, useState} from "react";
 import { FuncionesContext } from "../../context/Funciones";
 import { Carrusel } from "./Carrusel";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./home.scss";
 
@@ -14,7 +15,7 @@ export const Home = () => {
     handleClickRestar,
     cantidad,
     precioCalculado,
-    handleClickNav
+    handleClickNav,
   } = useContext(FuncionesContext);
 
   return (
@@ -98,8 +99,11 @@ export const Home = () => {
               </section>
             )
           )}
-          <Link to="/pedido" className="btnLink"
-          onClick={() => handleClickNav("pedido")}>
+          <Link
+            to="/pedido"
+            className="btnLink"
+            onClick={() => handleClickNav("pedido")}
+          >
             <button
               className={`btnFinalizarCompra ${
                 arrayProduc.some((p) => cantidad[p.id] > 0) ? "btnActivado" : ""

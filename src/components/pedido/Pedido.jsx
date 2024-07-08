@@ -10,6 +10,7 @@ export const Pedido = () => {
     handleClickNav,
     handleEditarProd,
     edit,
+    handleDeleteProd
   } = useContext(FuncionesContext);
   const { totalPrecio, totalCantidad } = calcularTotales();
 
@@ -77,7 +78,7 @@ export const Pedido = () => {
                     <div className="infoProdc">
                       <p className="nameProd">{nameProduc}</p>
                       <p className="description">{description}</p>
-                      <p className="eliminar">Eliminar prod</p>
+                      <p className="eliminar" onClick={() => handleDeleteProd(id)}>Eliminar prod</p>
                       <p className="cantidadItem">
                         Cantidad: <strong className="numero">{cantidad}</strong>
                       </p>

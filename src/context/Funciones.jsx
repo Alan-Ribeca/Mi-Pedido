@@ -14,7 +14,8 @@ const FuncionProvider = ({ children }) => {
       img: "./img/public4Perf.jpeg",
       alt: "img del producto",
       nameProduc: "Queso Cheddar",
-      description: "Queso de sabor fuerte y textura firme, perfecto para sandwiches.",
+      description:
+        "Queso de sabor fuerte y textura firme, perfecto para sandwiches.",
       stock: 100,
       precio: 600,
       cantidad: 0,
@@ -44,7 +45,8 @@ const FuncionProvider = ({ children }) => {
       img: "./img/i3.jpg",
       alt: "img del producto",
       nameProduc: "Pan Integral",
-      description: "Pan hecho con harina integral, ideal para una dieta equilibrada",
+      description:
+        "Pan hecho con harina integral, ideal para una dieta equilibrada",
       stock: 100,
       precio: 350,
       cantidad: 0,
@@ -70,6 +72,9 @@ const FuncionProvider = ({ children }) => {
     },
   ];
 
+  let productoSeleccionado =
+    JSON.parse(localStorage.getItem("productoSeleccionado")) || [];
+
   //funcion para abrir el filtrar producto
   const [abrirFiltrar, SetAbrirFiltrar] = useState(false);
   function handleFiltrar() {
@@ -89,7 +94,7 @@ const FuncionProvider = ({ children }) => {
         [id]: (prevCantidad[id] || 0) + 1,
       };
 
-      if (newCantidad[id] < 0) {
+      if (productoSeleccionado) {
         setClaseProductos("conProduc");
       }
 
@@ -108,8 +113,7 @@ const FuncionProvider = ({ children }) => {
 
   // agregar los productos seleccionados al localStorage
   useEffect(() => {
-    let productoSeleccionado =
-      JSON.parse(localStorage.getItem("productoSeleccionado")) || [];
+
 
     Object.keys(cantidad).forEach((id) => {
       const existingProductIndex = productoSeleccionado.findIndex(
@@ -209,10 +213,8 @@ const FuncionProvider = ({ children }) => {
     let totalCantidad = 0;
 
     losProductos.forEach((produc) => {
-      totalPrecio += produc.precio 
+      totalPrecio += produc.precio;
       totalCantidad += produc.cantidad;
-
-      
     });
 
     return { totalPrecio, totalCantidad };
@@ -220,13 +222,27 @@ const FuncionProvider = ({ children }) => {
   const { totalPrecio, totalCantidad } = calcularTotales();
 
   //funcion para actualizar los pedidos
-  const [edit, setEdit] = useState(false)
+  const [edit, setEdit] = useState(false);
 
   const handleEditarProd = () => {
-    console.log('probando')
-    setEdit(!edit)
-  }
+    console.log("probando");
+    setEdit(!edit);
+  };
 
+  // funcion para eliminar un prod
+  const [prodEliminados, setLosProductos] = useState([]);
+  const handleDeleteProd = (id) => {
+    const productosActualizados = losProductos.filter(
+      (produc) => produc.id !== id
+    );
+
+    setLosProductos(productosActualizados);
+
+    localStorage.setItem(
+      "productoSeleccionado",
+      JSON.stringify(productosActualizados)
+    );
+  };
 
   return (
     <FuncionesContext.Provider
@@ -245,7 +261,8 @@ const FuncionProvider = ({ children }) => {
         losProductos,
         calcularTotales,
         handleEditarProd,
-        edit
+        edit,
+        handleDeleteProd,
       }}
     >
       {children}
