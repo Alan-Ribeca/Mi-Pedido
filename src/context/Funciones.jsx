@@ -113,8 +113,6 @@ const FuncionProvider = ({ children }) => {
 
   // agregar los productos seleccionados al localStorage
   useEffect(() => {
-
-
     Object.keys(cantidad).forEach((id) => {
       const existingProductIndex = productoSeleccionado.findIndex(
         (prod) => prod.id === parseInt(id)
@@ -221,29 +219,6 @@ const FuncionProvider = ({ children }) => {
   };
   const { totalPrecio, totalCantidad } = calcularTotales();
 
-  //funcion para actualizar los pedidos
-  const [edit, setEdit] = useState(false);
-
-  const handleEditarProd = () => {
-    console.log("probando");
-    setEdit(!edit);
-  };
-
-  // funcion para eliminar un prod
-  const [prodEliminados, setLosProductos] = useState([]);
-  const handleDeleteProd = (id) => {
-    const productosActualizados = losProductos.filter(
-      (produc) => produc.id !== id
-    );
-
-    setLosProductos(productosActualizados);
-
-    localStorage.setItem(
-      "productoSeleccionado",
-      JSON.stringify(productosActualizados)
-    );
-  };
-
   return (
     <FuncionesContext.Provider
       value={{
@@ -260,9 +235,6 @@ const FuncionProvider = ({ children }) => {
         active,
         losProductos,
         calcularTotales,
-        handleEditarProd,
-        edit,
-        handleDeleteProd,
       }}
     >
       {children}

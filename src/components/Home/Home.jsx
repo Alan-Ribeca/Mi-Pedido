@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useContext, useEffect, useState} from "react";
+import { useContext, useEffect, useState } from "react";
 import { FuncionesContext } from "../../context/Funciones";
 import { Carrusel } from "./Carrusel";
 import { Link } from "react-router-dom";
