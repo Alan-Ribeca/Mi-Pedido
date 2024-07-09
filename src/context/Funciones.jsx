@@ -242,6 +242,11 @@ const FuncionProvider = ({ children }) => {
       ...prevCantidad,
       [id]: 0,
     }));
+    // reseteo el precio del producto eliminado a 0
+    setPrecioCalculado((prevPrecios) => ({
+      ...prevPrecios,
+      [id]: 0,
+    }));
   };
 
   return (
