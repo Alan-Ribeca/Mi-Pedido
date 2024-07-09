@@ -1,4 +1,5 @@
-import { useContext } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useContext, useEffect } from "react";
 import { FuncionesContext } from "../../context/Funciones";
 import { Link } from "react-router-dom";
 import "./pedido.scss";
@@ -8,8 +9,23 @@ export const Pedido = () => {
     losProductos,
     calcularTotales,
     handleClickNav,
+    handleEditarProd,
+    edit,
+    handleEliminarProd,
+    handleClickSumar,
+    handleClickRestar,
+    precio,
+    precioCalculado,
+    cantidad,
+    setTotalPrecio,
+    setTotalCantidad,
   } = useContext(FuncionesContext);
   const { totalPrecio, totalCantidad } = calcularTotales();
+
+  useEffect(() => {
+    setTotalPrecio(totalPrecio);
+    setTotalCantidad(totalCantidad);
+  }, [cantidad, precio]);
 
   const enviarMensajeWhatsApp = (losProductos) => {
     let textoTotales = `Precio total: ${totalPrecio}\nCantidad prod: ${totalCantidad}\n`;
@@ -51,31 +67,62 @@ export const Pedido = () => {
         </>
       ) : (
         <>
-          {losProductos.map(
-            ({ id, img, alt, nameProduc, description, cantidad, precio }) => (
-              <section className="contenedorProductos" key={id}>
-                <div className="containerProduc">
-                  <div className="containerImg">
-                    <img src={img} alt={alt} />
-                    <div className="infoProdc">
-                      <p className="nameProd">{nameProduc}</p>
-                      <p className="description">{description}</p>
-                      <p className="eliminar">Eliminar prod</p>
-                      <p className="cantidadItem">
-                        Cantidad: <strong className="numero">{cantidad}</strong>
-                      </p>
-                    </div>
-                  </div>
-                  <p className="precio">${precio}</p>
-                  <div className="contador">
-                    <button className="btnContador menos">-</button>
-                    <p className="numer">{cantidad}</p>
-                    <button className="btnContador mas">+</button>
+          <p className="editar" onClick={handleEditarProd}>
+            Editar Pedido{" "}
+            <strong className="svgEdit">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                className="lapizSvg"
+                viewBox="0 0 16 16"
+              >
+                <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z" />
+              </svg>
+            </strong>
+          </p>
+          {losProductos.map(({ id, img, alt, nameProduc, description }) => (
+            <section className="contenedorProductos" key={id}>
+              <div className={`containerProduc ${edit ? "modoEdit" : ""}`}>
+                <div className="containerImg">
+                  <img src={img} alt={alt} />
+                  <div className="infoProdc">
+                    <p className="nameProd">{nameProduc}</p>
+                    <p className="description">{description}</p>
+                    <p
+                      className="eliminar"
+                      onClick={() => handleEliminarProd(id)}
+                    >
+                      Eliminar prod
+                    </p>
+                    <p className="cantidadItem">
+                      Cantidad:{" "}
+                      <strong className="numero">{cantidad[id]}</strong>
+                    </p>
                   </div>
                 </div>
-              </section>
-            )
-          )}
+                <p className="precio">
+                  {cantidad[id] > 0 ? `$${precioCalculado[id]}` : `$${precio}`}
+                </p>
+                <div className="contador">
+                  <button
+                    className="btnContador menos"
+                    onClick={() => handleClickRestar(id)}
+                  >
+                    -
+                  </button>
+                  <p className="numer">{cantidad[id]}</p>
+                  <button
+                    className="btnContador mas"
+                    onClick={() => handleClickSumar(id)}
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            </section>
+          ))}
           <div className="detalleCompra">
             <h4 className="detalleProd">Detalle de la compra</h4>
             <p className="cantidadTotal">

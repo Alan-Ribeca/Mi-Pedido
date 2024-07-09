@@ -72,9 +72,6 @@ const FuncionProvider = ({ children }) => {
     },
   ];
 
-  let productoSeleccionado =
-    JSON.parse(localStorage.getItem("productoSeleccionado")) || [];
-
   //funcion para abrir el filtrar producto
   const [abrirFiltrar, SetAbrirFiltrar] = useState(false);
   function handleFiltrar() {
@@ -94,7 +91,7 @@ const FuncionProvider = ({ children }) => {
         [id]: (prevCantidad[id] || 0) + 1,
       };
 
-      if (productoSeleccionado) {
+      if (newCantidad[id] < 0) {
         setClaseProductos("conProduc");
       }
 
@@ -113,6 +110,9 @@ const FuncionProvider = ({ children }) => {
 
   // agregar los productos seleccionados al localStorage
   useEffect(() => {
+    let productoSeleccionado =
+      JSON.parse(localStorage.getItem("productoSeleccionado")) || [];
+
     Object.keys(cantidad).forEach((id) => {
       const existingProductIndex = productoSeleccionado.findIndex(
         (prod) => prod.id === parseInt(id)
@@ -205,19 +205,44 @@ const FuncionProvider = ({ children }) => {
   //calcular el total (precio y cantidad) de los productos
   const losProductos =
     JSON.parse(localStorage.getItem("productoSeleccionado")) || [];
+  const [totalPrecio, setTotalPrecio] = useState(0);
+  const [totalCantidad, setTotalCantidad] = useState(0);
 
+  // Función para calcular los totales
   const calcularTotales = () => {
-    let totalPrecio = 0;
-    let totalCantidad = 0;
+    let precioTotal = 0;
+    let cantidadTotal = 0;
 
-    losProductos.forEach((produc) => {
-      totalPrecio += produc.precio;
-      totalCantidad += produc.cantidad;
+    losProductos.forEach((producto) => {
+      precioTotal += producto.precio;
+      cantidadTotal += cantidad[producto.id] || 0;
     });
 
-    return { totalPrecio, totalCantidad };
+    return { totalPrecio: precioTotal, totalCantidad: cantidadTotal };
   };
-  const { totalPrecio, totalCantidad } = calcularTotales();
+
+  //funcion para actualizar los pedidos
+  const [edit, setEdit] = useState(false);
+
+  const handleEditarProd = () => {
+    setEdit(!edit);
+  };
+
+  // funcion para eliminar los productos en edit
+  const handleEliminarProd = (id) => {
+    const productosActualizados = losProductos.filter(
+      (produc) => produc.id !== id
+    );
+    localStorage.setItem(
+      "productoSeleccionado",
+      JSON.stringify(productosActualizados)
+    );
+    // reseteo la cantidad del producto eliminado a 0 para que no aparezca como marcado en el componente Home
+    setCantidad((prevCantidad) => ({
+      ...prevCantidad,
+      [id]: 0,
+    }));
+  };
 
   return (
     <FuncionesContext.Provider
@@ -235,6 +260,11 @@ const FuncionProvider = ({ children }) => {
         active,
         losProductos,
         calcularTotales,
+        handleEditarProd,
+        edit,
+        handleEliminarProd,
+        setTotalPrecio,
+        setTotalCantidad,
       }}
     >
       {children}

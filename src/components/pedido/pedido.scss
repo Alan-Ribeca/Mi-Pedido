@@ -30,7 +30,19 @@
       }
     }
   }
-  
+  .editar {
+    color: #37ff8b;
+    position: absolute;
+    right: 4%;
+    top: 11%;
+    font-size: 12px;
+
+    &:hover {
+      color: #baff39;
+      cursor: pointer;
+    }
+  }
+
   .contenedorProductos {
     &:last-child {
       padding-bottom: 7rem;
