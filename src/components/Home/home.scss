@@ -154,7 +154,7 @@
             margin-top: 0.2rem;
 
             &:hover {
-              white-space:unset;
+              white-space: unset;
             }
           }
           .stock {
@@ -224,8 +224,7 @@
   }
 }
 
-
-@media screen and (max-width: 320px) { 
+@media screen and (max-width: 320px) {
   .homeContainer .contenedorProductos .containerProduc {
     height: max-content;
 
@@ -233,5 +232,65 @@
       max-width: 58%;
     }
   }
-
 }
+
+@media screen and (min-width: 1100px) {
+  .filtrarProdc {
+    width: 1000px;
+    margin: 0 auto;
+    padding-left: 1rem;
+  }
+
+  .homeContainer {
+    .contenedorProductos {
+      width: 1000px;
+      margin: 0 auto;
+    }
+  }
+}
+
+
+@media screen and (min-width: 855px) and (max-width: 1099px) { 
+  .filtrarProdc {
+    width: 800px;
+    margin: 0 auto;
+    padding-left: 1rem;
+  }
+
+  .homeContainer {
+    .contenedorProductos {
+      width: 800px;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media screen and (min-width: 633px) and (max-width: 854px) { 
+  .filtrarProdc {
+    width: 600px;
+    margin: 0 auto;
+    padding-left: 1rem;
+  }
+
+  .homeContainer {
+    .contenedorProductos {
+      width: 600px;
+      margin: 0 auto;
+    }
+  }
+}
+
+// @media screen and (min-width: 501px) and (max-width: 632px) { 
+//   .filtrarProdc {
+//     width: 500px;
+//     margin: 0 auto;
+//     padding-left: 0;
+//   }
+
+//   .homeContainer {
+//     .contenedorProductos {
+//       width: 500px;
+//       margin: 0 auto;
+//     }
+//   }
+// }
