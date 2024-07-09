@@ -44,7 +44,7 @@
       width: 100%;
       display: grid;
       align-items: center;
-      grid-template-columns: repeat(3, auto);
+      grid-template-columns: repeat(3, 1fr);
       background-color: rgb(254 254 254 / 94%);
 
       .svgPedido {

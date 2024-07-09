@@ -5,9 +5,9 @@
   margin-top: 1.5rem;
   background-color: #383838;
   margin-top: 3rem;
-  box-shadow: 8px 8px 6px -9px rgba(0,102,19,1) inset;
-  -webkit-box-shadow: 8px 8px 6px -9px rgba(0,102,19,1) inset;
-  -moz-box-shadow: 8px 8px 6px -9px rgba(0,102,19,1) inset;
+  box-shadow: 8px 8px 6px -9px rgba(0, 102, 19, 1) inset;
+  -webkit-box-shadow: 8px 8px 6px -9px rgba(0, 102, 19, 1) inset;
+  -moz-box-shadow: 8px 8px 6px -9px rgba(0, 102, 19, 1) inset;
   .containerNombre {
     padding: 2rem;
     display: flex;
@@ -90,6 +90,42 @@
     &:hover .hover-text {
       width: 50%;
       filter: drop-shadow(0 0 23px var(--animation-color));
+    }
+  }
+}
+
+@media screen and (max-height: 844px) { 
+  .perfilUsuario {
+    height: 32rem;
+    margin-bottom: 6rem;
+    .button {
+      margin-top: 1.5rem;
+      font-size: 28px;
+    }
+  }
+}
+
+
+@media screen and (max-width: 320px) {
+  .perfilUsuario {
+    height: 31rem;
+    margin-bottom: 5rem;
+
+    .ajustePerfil .pDePerfil .toggle {
+      top: 2%;
+      left: 40%;
+    }
+
+    .containerNombre {
+      padding: 1rem;
+    }
+
+    .ajustePerfil {
+      padding-left: 1rem;
+    }
+
+    .button {
+      font-size: 25px;
     }
   }
 }

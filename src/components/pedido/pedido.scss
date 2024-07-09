@@ -74,6 +74,7 @@
         }
 
         .infoProdc {
+          max-width: 80%;
           margin-left: 0.5rem;
 
           .nameProd {
@@ -213,6 +214,53 @@
       &:hover {
         color: white;
         background-color: #37ff8b;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .listadoPedido
+    .contenedorProductos
+    .containerProduc
+    .containerImg
+    .infoProdc {
+    max-width: 62%;
+    .description {
+      max-width: 89%;
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .listadoPedido {
+    .editar {
+      top: 21%;
+    }
+
+    .contenedorProductos .containerProduc {
+      margin: 1rem 0.4rem 0 0.4rem;
+
+      .containerImg .infoProdc .description {
+        max-width: 64%;
+      }
+    }
+
+    .detalleCompra {
+      .detalleProd {
+        padding-left: 0;
+      }
+
+      .cantidadTotal {
+        padding-left: 0;
+
+        .numeroTotal {
+          padding-left: 0.5rem;
+        }
+      }
+
+      .priceTotal {
+        padding-left: 0;
       }
     }
   }

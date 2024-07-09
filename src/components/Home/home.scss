@@ -37,7 +37,7 @@
         width: 14%;
         position: relative;
         cursor: pointer;
-        font-size: 16px;
+        font-size: 14px;
 
         .flecha {
           position: absolute;
@@ -222,4 +222,16 @@
       }
     }
   }
+}
+
+
+@media screen and (max-width: 320px) { 
+  .homeContainer .contenedorProductos .containerProduc {
+    height: max-content;
+
+    .containerImg .infoProdc .description {
+      max-width: 58%;
+    }
+  }
+
 }
