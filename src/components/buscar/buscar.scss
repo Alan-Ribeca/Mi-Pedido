@@ -17,7 +17,7 @@
     justify-content: center;
 
     .inputB {
-      width: 50%;
+      width: 300px;
       height: 30px;
       border-radius: 8px;
       border: none;
@@ -77,5 +77,15 @@
         }
       }
     }
+  }
+}
+
+
+
+@media screen and (min-width: 1100px) {  
+  .containerBuscador .gridsvg {
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 1rem;
   }
 }
