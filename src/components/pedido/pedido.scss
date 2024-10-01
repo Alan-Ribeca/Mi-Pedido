@@ -266,7 +266,7 @@
   }
 }
 
-@media screen and (min-width: 1100px) { 
+@media screen and (min-width: 1100px) {
   .listadoPedido {
     width: 1000px;
     margin: 0 auto;
@@ -274,5 +274,10 @@
     .editar {
       right: 25%;
     }
+  }
+
+  .contenedorProductos {
+    width: 700px;
+    margin: 0 auto;
   }
 }
